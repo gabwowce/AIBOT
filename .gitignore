@@ -1,0 +1,12 @@
+# Slapti raktai: niekada į git
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
