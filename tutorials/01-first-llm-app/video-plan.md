@@ -190,7 +190,15 @@ Klausimas: *kaip perduoti svetainės tekstą? Gal tiesiog atskira rolė
      be atskiros system rolės. Modelis tik tęsia tekstą po paskutinės
      `assistant` žymos.
 - Todėl rolės yra ne laisvai sugalvojami raktai: modelis jas matė
-  apmokymo metu. **Demo D2:** `"role": "data"` → klaida.
+  apmokymo metu. **Demo D2 (patikrinta 2026-11-22):** `"role": "data"` →
+  `400 "Invalid role: data"`.
+- Papildomas tikras įrodymas, kad JSON tik „vokas“: jei siunčiame vien
+  `system` žinutę, Gemini grąžina `400 "contents is not specified"`.
+  Suderinamumo sluoksnis `system` perkelia į Gemini `system_instruction`,
+  o pačiam pokalbiui reikia bent vienos `user` žinutės.
+- Gemini OpenAI compatibility dokumentacijoje leidžiamų rolių sąrašo nėra
+  (puslapis pažymėtas kaip beta), todėl video remiamės savo bandymu, ne
+  dokumentacija.
 - Kur tada dedame duomenis: į `system` turinį tarp žymų
   `<codeart_svetaine>`. Tokenais tampa tik turinys, ne JSON „vokas“.
 - **Pagrindinis vaizdas („rentgenas“):** du AI Studio langai su tuo
@@ -283,6 +291,10 @@ Klausimas: *kaip botas prisimins, ką lankytojas sakė prieš tai?*
   visą pokalbį.
 - Klasikinė Chat Completions API neturi būsenos: istoriją siunčiame mes.
   Mūsų atveju kartu kiekvieną kartą siunčiama ir visa svetainė.
+- Tikri skaičiai: istorija prideda tik ~50 tokenų per ėjimą, o kainą
+  lemia svetainė (~62 000 tokenų), siunčiama kiekvieną kartą. Net „ok“
+  kainavo 62 035 input tokenus, iš jų 96 % paėmė cache. Video sakome
+  būtent tai, ne „istorija brangina“.
 - 2026 m. kai kurios naujesnės API (OpenAI Responses, Gemini
   Interactions) saugo istoriją serveryje, ir siųsti jos nereikia. Bet
   modelis vis tiek ją visą perskaito iš naujo, ir OpenAI tie tokenai vis
@@ -370,6 +382,24 @@ Klausimas: *kiek man kainuos vienas klausimas?*
 Bendras santykis pagal šias dalis yra apie 2/3 tikro ekrano. Iki 70 %
 galima priartėti santraukoje rodant veikiantį botą.
 
+## Filmavimo taisyklės
+
+- **Kalba.** Video angliškas, todėl demo klausimai ir kodas ekrane
+  angliškai (pvz., „How much would a booking system cost?“). Botas atsako
+  lankytojo kalba, todėl atsakymai irgi bus angliški.
+- **Viena lietuviška vieta.** Rodome vieną pokalbį lietuviškai su angliška
+  antrašte ekrane: tai įrodo taisyklę „reply in the user's language“ ir
+  tinka D8 (lietuviškas tekstas užima daugiau tokenų).
+- **Skaičiai iš to paties įrašo.** Kiekvienas paleidimas duoda kitą
+  atsakymą ir kitus tokenus, todėl VO skaičiai imami iš to kadro, kuris
+  rodomas video, o ne iš ankstesnių bandymų.
+- **Klaidos tekstas matomas.** SDK rodo tik `Error code: 400`. Kad
+  žiūrovas matytų priežastį (`Invalid role: data`), demo metu
+  atspausdiname klaidos turinį (`e.response.text`).
+- **Neatkartojami momentai.** Kai kurių dalykų vėliau gali nepavykti
+  pakartoti (pvz., 3.8 Flash perkrova ir 503). Jei tokių momentų norime
+  video, filmuojame juos iškart, kai pasitaiko.
+
 ## Demo, kurias reikia nufilmuoti
 
 Visoms reikia veikiančio 1 dalies kodo (D5 reikia ir 2 dalies), todėl
@@ -390,6 +420,25 @@ filmuoti verta po jo.
 | D11 | 5–8 testinių klausimų per 3 Gemini modelius: teisingumas, taisyklės, tokenai, kaina, laikas | intro, 7 |
 | D12 | Veikiantis botas: lankytojas aprašo projektą, gauna preliminarią kainą | intro, 8 |
 
+## Tikri skaičiai iš paleidimų
+
+| Data | Ką matavome | Rezultatas |
+| --- | --- | --- |
+| 2026-11-20 | Visa svetainė (D4) | 61 647 input tokenų; su instrukcijomis 61 826 |
+| 2026-11-20 | `gemini-3.8-flash`, nemokamas lygis | Mažas klausimas: klaida 503 (serveris perkrautas) po 58 s; su visa svetaine neatsakė per 90 s |
+| 2026-11-20 | `gemini-3.5-flash-lite` | Atsakė per 3,5–4,1 s; kainos ir terminai teisingi pagal svetainę; viena lietuviška klaida („Tikslikė“) |
+| 2026-11-20 | `usage` per OpenAI-compatible adresą (3.5 Flash-Lite) | `completion_tokens_details` yra `None`: `reasoning_tokens` šiam modeliui negrąžinami |
+| 2026-11-22 | Tas pats klausimas antrą kartą (D7) | Kitas atsakymas: kitokia struktūra, 432 output tokenai vietoj 311; faktai tie patys |
+| 2026-11-22 | `"role": "data"` (D2) | `400 INVALID_ARGUMENT: "Invalid role: data"`. Tas pats su sugalvota role `banana`. (Pirmas bandymas atrodė be klaidos, nes `main.py` pakeitimas nebuvo išsaugotas.) |
+| 2026-11-22 | 5 ėjimų pokalbis EN (D5, D9) | Input 61 877 → 62 092: istorija prideda tik ~50 tokenų per ėjimą. „ok“ = 62 035 input tokenų. Nuo 2 ėjimo cached ~59 330 (96 %). Atsakymas 1,1–1,6 s |
+| 2026-11-22 | LT ir EN svetainės dalis (D8) | LT 18 511 tokenų (2,46 / žodį), EN 11 968 (1,38 / žodį): lietuviškai ~55 % daugiau tokenų |
+| 2026-11-22 | Atmintis ir užmarštis | Su istorija vardą prisiminė, be istorijos ne |
+| 2026-11-22 | Cache nepataikė (LT pokalbis) | `cached 0`, atsakymas 9,5–9,8 s vietoj 1–2 s: cache veikia ir greitį |
+| 2026-11-22 | Mąstymo tokenai per OpenAI-compatible adresą (D6) | 3.6 Flash ir 3.8 Flash su `low` / `high`: `reasoning_tokens` negrąžinamas (`None`), output tik 46–55 tokenai, bet laikas 33–83 s, o 3.8 `high` neatsakė per 90 s. Mąstymas vyksta, bet per šį adresą jo nematyti. D6 filmuoti per Gemini savą SDK (`google-genai`, `thoughts_token_count`) arba AI Studio |
+| 2026-11-22 | Rasti trūkumai | Į angliškai parašytą „Hi, my name is Gabriele“ atsakė lietuviškai (kalbos taisyklė pažeista); kainos nenuoseklios („nuo 500 €“, paskui „nuo 1 000 €“; LT išgalvota „nuo 1 500 €“); 3 ėjime vietoj preliminarios kainos pasiūlė rašyti el. paštu |
+| 2026-11-22 | Tik `system` žinutė, be `user` | `400: "GenerateContentRequest.contents: contents is not specified"`. Įrodo, kad Gemini suderinamumo sluoksnis `system` perkelia į atskirą `system_instruction`, o pokalbiui reikia bent vienos `user` žinutės |
+| 2026-11-22 | Implicit caching (D9) | Trečią paleidimą iš eilės `cached_tokens=59357` iš 61 826 input (96 %). Pirmus du kartus `prompt_tokens_details` buvo `None`, t. y. cache nepataikė |
+
 ## Ką patikrinti per demo, kad video nemeluotų
 
 - Ar AI Studio rodo tokenų skaičių taip, kad jį galima nufilmuoti
@@ -400,9 +449,13 @@ filmuoti verta po jo.
 - Ar `gemini-3.8-flash` per OpenAI-compatible adresą priima
   `reasoning_effort` ir kokias reikšmes. Forume pranešta, kad Gemini 3
   Flash atveju reikšmė `minimal` per šį adresą buvo atmesta.
-- Ar `usage` grąžina `reasoning_tokens` ir `cached_tokens` per
-  OpenAI-compatible adresą.
-- Kokią klaidą tiksliai grąžina `"role": "data"` (tikimės 400).
+- `usage` per OpenAI-compatible adresą (patikrinta 2026-11-22):
+  `cached_tokens` grąžina, `reasoning_tokens` ne. D6 reikia Gemini savo
+  SDK arba AI Studio. Kol to nepatikrinsime, video nesakome konkretaus
+  mąstymo tokenų skaičiaus.
+- `"role": "data"`: patikrinta 2026-11-22, Gemini grąžina 400
+  „Invalid role: data“. Filmuojant D2 įsitikinti, kad pakeitimas
+  išsaugotas.
 - Ar lietuviškas tekstas tikrai užima daugiau tokenų (D8).
 - Gemini Interactions API: ar serveryje saugoma istorija apmokestinama
   (forume klausimas be atsakymo). Jei nepavyks išsiaiškinti, video

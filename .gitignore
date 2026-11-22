@@ -1,4 +1,4 @@
-# Slapti raktai: niekada į git
+# Secret keys: never in git
 .env
 .env.*
 !.env.example
@@ -7,6 +7,9 @@
 .venv/
 __pycache__/
 *.pyc
+
+# Screen recordings for videos: large files, kept out of git
+recordings/
 
 # macOS
 .DS_Store

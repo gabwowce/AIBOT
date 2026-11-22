@@ -47,10 +47,30 @@ Vienas projektas, kuris auga per visus modulius: AI asistentas svetainėje
 [codeart.lt](https://codeart.lt).
 
 - **Ką daro:** pagrindinė kryptis yra kaina. Botas išklausinėja lankytoją
-  apie jo projektą ir pateikia preliminarią kainą bei terminą pagal Codeart
-  kainas, nes užsakovams labiausiai rūpi sužinoti kainą. Atsako ir į kitus
-  klausimus apie paslaugas, darbo eigą ir atliktus darbus (LT ir EN).
-  Pokalbį paverčia struktūruota užklausa, kuri ateina man el. paštu.
+  apie jo projektą ir pateikia preliminarią kainą bei terminą, nes
+  užsakovams labiausiai rūpi sužinoti kainą. Atsako ir į kitus klausimus
+  apie paslaugas, darbo eigą ir atliktus darbus (LT ir EN).
+- **Kaina pagal mano valandas (sprendimas 2026-11-20).** Ne tik „nuo X €“
+  iš svetainės, o mano kainodara: valandinis įkainis, tipiniai darbai su
+  valandomis (min–max), kas didina laiką, pastovios dalys ir atsarga.
+  Ją surašau pati į `knowledge/pricing.md`. Modelio neapmokome: kainodara
+  pateikiama kaip duomenys, kad ją būtų galima keisti per minutę.
+  1–2 tutorialuose kainą skaičiuoja modelis iš lentelės prompte, nuo 3
+  tutorialo modelis grąžina reikalingus darbus struktūruotai, o valandas
+  ir kainą skaičiuoja Python.
+- **Asistentas, ne tik chatbot'as: geras pardavėjas (sprendimas
+  2026-11-20).**
+  - Siūlo alternatyvas, kai kaina per didelė: MVP, darbą etapais,
+    paprastesnį sprendimą, kuris užima mažiau valandų.
+  - Nuolaidą siūlo tik pagal mano taisykles (jas dar reikia surašyti).
+  - Galutinės kainos nepažada. Vietoj to paruošia preliminarų pasiūlymą
+    (darbai, valandos, kaina, terminas), kuris ateina man el. paštu, o
+    lankytojui sako, kad patvirtinsiu aš. Priežastis: žinomi atvejai, kai
+    įmonė turėjo vykdyti boto pažadą (Air Canada, 2024), ir žmonės bando
+    botus įkalbėti.
+  - Vėliau įrankiai (3 modulis): kainos skaičiuoklė, laikas skambučiui,
+    pasiūlymo išsiuntimas. Testai (4 modulis): niekada nepažada galutinės
+    kainos, neduoda nuolaidos už taisyklių ribų, nepasiduoda įkalbinėjimui.
 - **Kodėl būtent jis:**
   - pirmiausia tai mokymosi projektas: kuriu jį, kad išmokčiau, o ne todėl,
     kad verslui jo būtinai reikia (video taip ir sakau);
@@ -60,8 +80,9 @@ Vienas projektas, kuris auga per visus modulius: AI asistentas svetainėje
   - tai portfolio projektas, kurį darbdavys gali išbandyti pats;
   - kiekvienas modulis jam suteikia naują galimybę.
 - **Taisyklės nuo pirmos dienos:** jokių galutinių kainų: kaina visada
-  preliminari („nuo X €“ arba intervalas pagal svetainės kainas) ir taip ir
-  pažymėta; kalba tik apie Codeart; užklausų ir išlaidų limitas.
+  preliminari ir taip ir pažymėta, galutinę patvirtinu aš; nuolaidos tik
+  pagal mano taisykles; kalba tik apie Codeart; užklausų ir išlaidų
+  limitas.
 - **Techniškai:** svetainė statinė (GitHub Pages, vanilla JS). Todėl reikės
   atskiro Python backend'o (FastAPI) ir mažo įterpiamo chat widget'o.
 
@@ -120,6 +141,37 @@ Asistentas paruoštas produkcijai.
 - TikMaker kaip atvejo analizė: kaip sukūriau agentų sistemą, kuri kuria
   video (po baigiamojo darbo gynimo)
 
+## Kur sustojome (2026-11-22)
+
+1 tutorialas: 1 ir 2 dalys veikia (`main.py`: pokalbio ciklas su
+istorija, tokenai, klaidų gaudymas). Bandymų įrašai `runs/`, tikri
+skaičiai `video-plan.md`.
+
+**Kitas mano darbas: užpildyti `code/knowledge/pricing.md`** (visur, kur
+`____`):
+
+- **A. Įkainis:** valandinis įkainis (pvz., `40 € per hour`) ir minimali
+  projekto kaina, ne mažesnė už svetainės „nuo“ kainas (integracija 500 €,
+  chatbot 800 €, aplikacija 1 000 €, verslo sistema 2 500 €).
+- **B. Darbai:** kiekvienam darbui Min h (paprasta versija) ir Max h
+  (sudėtinga). Nereikalingas eilutes ištrinti, savas pridėti. Svarbiausia
+  dalis.
+- **C. Kas ilgina darbą:** kelios kalbos, mobilioji programėlė, daug rolių,
+  neaiškūs reikalavimai: `+__ %` arba `+__ h`.
+- **D. Kas įeina visada:** planavimo, testavimo, paleidimo valandos ir
+  atsarga procentais.
+- **E. Terminas:** kiek valandų per savaitę skiriu vienam projektui.
+- **F. Nuolaidos:** kokią ir kada botas gali siūlyti, arba `none`.
+- **G.** Neprivaloma papildoma taisyklė apie tai, kaip botas kalba apie
+  kainą.
+
+Skaičiai gali būti apytiksliai: valandos tokios, kokias realiai užtrunku
+aš. Vėliau pataisysiu pagal testus.
+
+**Po to:** prijungti `pricing.md` prie prompto → botas-pardavėjas
+(klausinėja, skaičiuoja pagal valandas, siūlo alternatyvas) → filmavimo
+scenarijus → filmavimas.
+
 ## Atviri klausimai
 
 ### Gemini nemokamas lygis ir gyva svetainė (nuspręsti prieš 4 tutorialą)
@@ -131,18 +183,17 @@ Asistentas paruoštas produkcijai.
   Prieš paleidžiant asistentą codeart.lt, patikrinti dabartines sąlygas ir
   tikriausiai įjungti mokamą lygį su išlaidų limitu.
 
-### Kaip skaičiuoti preliminarią kainą (nuspręsti prieš 3 tutorialą)
-- Svetainėje yra „nuo X €“ kiekvienai paslaugai ir keli intervalai
-  straipsniuose:
-  - verslo sistemos: nuo 2 500 €, 4 000–8 000 €, nuo 8 000 €;
-  - aplikacijos: MVP nuo 1 000 €, platforma 2 500–6 000 €, mobilioji
-    programėlė nuo 4 000 €;
-  - chatbot: nuo 800 € ir 10–50 € per mėnesį.
-  
-  Integracijoms intervalų nėra. Tikslesnei preliminariai kainai reikės
-  mano kainodaros taisyklių (kas kiek prideda prie kainos).
-- Kas skaičiuoja kainą: modelis (paprasčiau, bet gali suklysti
-  aritmetikoje) ar kodas (modelis surenka duomenis, Python suskaičiuoja)?
+### Kainodara ir nuolaidos (surašyti prieš 4 žingsnį: botas, kuris klausinėja apie kainą)
+- `knowledge/pricing.md`: valandinis įkainis, darbai su valandomis,
+  laiką didinantys dalykai, pastovios dalys, atsarga.
+- Nuolaidų taisyklės: kada ir kiek (pvz., iki 10 %, jei apmokama iš
+  karto).
+- Kaina iš valandų neturėtų būti mažesnė už svetainėje skelbiamą „nuo X €“
+  (svetainėje: verslo sistemos nuo 2 500 €, aplikacijos nuo 1 000 €,
+  integracijos nuo 500 €, chatbot nuo 800 €). Jei taip nutinka, pataisyti
+  lentelę arba svetainę.
+- Nemokamame Gemini lygyje Google naudoja užklausas, todėl įkainis pateks
+  pas juos. Nuspręsti, ar tai priimtina.
 
 ### Tutorialo struktūra (nuspręsti vėliau)
 Juodraštis, kol kas nepatvirtintas:
