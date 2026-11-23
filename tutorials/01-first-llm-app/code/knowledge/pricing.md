@@ -45,7 +45,7 @@ separately (see "Always included").
 | Each extra language | + 1–3 h |
 | Mobile app (not just a web app) | + ____ % or + ____ h |
 | Many user roles with different permissions | + ____ h |
-| Ready to grow (more countries, languages or features later) | + ____ h |
+| Ready to grow (more countries, languages or features later) | + 2–3 h |
 
 ## Always included (depends on project size)
 
