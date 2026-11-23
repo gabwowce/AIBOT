@@ -42,7 +42,6 @@ Hours for each item include everything for that item: designing it, building it 
 | Each extra language | + 1–3 h |
 | Mobile app (not just a web app) | + ____ % or + ____ h |
 | Many user roles with different permissions | + ____ h |
-| Unclear requirements (client doesn't know yet how it should work) | + ____ % |
 | UX design (not just a working screen, but convenient to use) | + ____ h |
 | Ready to grow (more countries, languages or features later) | + ____ h |
 | ____ | ____ |
@@ -51,14 +50,15 @@ Hours for each item include everything for that item: designing it, building it 
 
 | Part | Hours |
 | --- | --- |
-| Planning and requirements | ____ |
-| Testing | ____ |
+| Planning: requirements, database model, technical decisions | 8–10 |
+| Testing: all use cases, mobile and other devices, code review | 10–12 |
+| Bug fixing after testing | 4 |
 | Launch and instructions | ____ |
-| Buffer for the unexpected | + ____ % |
+| Buffer for things that come up during the work (unclear requirements included) | + 15 % |
 
 ## Timeline
 
-- I work about ____ hours per week on one project.
+- I work about 20 hours per week on one project.
 - Timeline in weeks = total hours ÷ hours per week, rounded up.
 
 ## Discounts and alternatives
