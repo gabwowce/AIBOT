@@ -16,24 +16,27 @@ Note: on the Gemini free tier, Google may use prompts to improve its products.
 ## Typical work items
 
 Hours are for one developer at my usual pace. "Min" = simple version, "Max" = complex version.
-Hours for each item include everything for that item: designing it, building it and testing it.
+Hours here are only for building the item. Planning, testing, bug fixing and launch are added
+separately (see "Always included").
 
 | Work item | What it includes | Min h | Max h |
 | --- | --- | --- | --- |
-| Project setup | Repository, hosting, database, domain | ____ | ____ |
-| Login and user roles | Sign up, log in, password reset, roles | ____ | ____ |
-| Admin panel | Managing records, simple settings | ____ | ____ |
-| List with search and filters | One main list (orders, parcels, bookings...) | ____ | ____ |
-| Form with validation | One data entry form | ____ | ____ |
-| Dashboard / reports | Charts, totals, export to Excel | ____ | ____ |
-| Data import | Moving data from Excel or an old system | ____ | ____ |
-| Integration with one external API | Courier, payment, accounting, CRM... | ____ | ____ |
-| Email notifications | Templates and sending | ____ | ____ |
-| Payments | Online payment and its statuses | ____ | ____ |
-| Booking calendar | Free slots, booking, cancelling | ____ | ____ |
-| AI chatbot | Knowledge base, rules, website widget | ____ | ____ |
-| Design (UI) | Screens and styles | ____ | ____ |
-| ____ | ____ | ____ | ____ |
+| Project setup | Repository, hosting, database, domain | 2 | 4 |
+| Login and user roles | Sign up, log in, password reset, roles | 2 | 4 |
+| Admin panel: first page | One page for managing records (create, edit, delete) | 4 | 4 |
+| Admin panel: each extra page | Another page for managing records, infrastructure already exists | 2 | 2 |
+| Admin panel: statistics | Totals and simple charts in the admin panel | 2 | 3 |
+| List with search and filters | One main list (orders, parcels, bookings...) | 2 | 4 |
+| Form with validation | One data entry form | 1 | 1 |
+| Dashboard / reports | Charts, totals, export to Excel | 4 | 6 |
+| Data import | Moving data from Excel or an old system | 5 | 8 |
+| Integration with one external API | Courier, payment, accounting, CRM... | 1 | 4 |
+| Email notifications | Templates and sending | 1 | 3 |
+| Payments | Online payment and its statuses | 3 | 8 |
+| Booking calendar | Free slots, booking, cancelling | 4 | 8 |
+| AI chatbot | Knowledge base, rules, website widget | 8 | 20 |
+| Design (UI/UX) | Screens and styles, convenient to use | 2 | 8 |
+| Presentation website | A website that presents a business (no database) | 4 | 12 |
 
 ## What makes it take longer
 
@@ -42,9 +45,7 @@ Hours for each item include everything for that item: designing it, building it 
 | Each extra language | + 1–3 h |
 | Mobile app (not just a web app) | + ____ % or + ____ h |
 | Many user roles with different permissions | + ____ h |
-| UX design (not just a working screen, but convenient to use) | + ____ h |
 | Ready to grow (more countries, languages or features later) | + ____ h |
-| ____ | ____ |
 
 ## Always included (depends on project size)
 
@@ -59,7 +60,7 @@ depends on the size of the project. Pick the row that fits.
 
 - Buffer for things that come up during the work (unclear requirements included): + 15 %.
 - If I have already built something similar (for example a language learning system),
-  planning takes less time: ____.
+  planning takes half the time.
 
 ## Timeline
 
