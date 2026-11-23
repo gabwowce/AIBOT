@@ -46,15 +46,20 @@ Hours for each item include everything for that item: designing it, building it 
 | Ready to grow (more countries, languages or features later) | + ____ h |
 | ____ | ____ |
 
-## Always included
+## Always included (depends on project size)
 
-| Part | Hours |
-| --- | --- |
-| Planning: requirements, database model, technical decisions | 8–10 |
-| Testing: all use cases, mobile and other devices, code review | 10–12 |
-| Bug fixing after testing | 4 |
-| Launch and instructions | ____ |
-| Buffer for things that come up during the work (unclear requirements included) | + 15 % |
+Every project includes planning, testing, bug fixing and launch. How many hours they take
+depends on the size of the project. Pick the row that fits.
+
+| Project size | Example | Planning | Testing | Bug fixing | Launch |
+| --- | --- | --- | --- | --- | --- |
+| Small | Presentation website, one integration, no database | ____ | ____ | ____ | ____ |
+| Medium | System with log in and a database, a few main features | ____ | ____ | ____ | ____ |
+| Large | Business system: many roles, integrations, reports | 8–10 | 10–12 | 4 | ____ |
+
+- Buffer for things that come up during the work (unclear requirements included): + 15 %.
+- If I have already built something similar (for example a language learning system),
+  planning takes less time: ____.
 
 ## Timeline
 
