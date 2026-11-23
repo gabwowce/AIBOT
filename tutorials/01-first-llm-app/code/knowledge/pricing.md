@@ -43,7 +43,6 @@ separately (see "Always included").
 | Factor | Effect |
 | --- | --- |
 | Each extra language | + 1–3 h |
-| Mobile app (not just a web app) | + ____ % or + ____ h |
 | Many user roles with different permissions | + ____ h |
 | Ready to grow (more countries, languages or features later) | + 2–3 h |
 
@@ -66,6 +65,16 @@ depends on the size of the project. Pick the row that fits.
 
 - I work about 20 hours per week on one project.
 - Timeline in weeks = total hours ÷ hours per week, rounded up.
+
+## Not priced by the assistant
+
+- **Mobile apps (App Store / Google Play).** The assistant does not give a price. It says that
+  Gabrielė will estimate a mobile app individually and asks:
+  - Is there already a web system? What is it built with (for example React)?
+  - Does the client have their own developer accounts (Apple, Google Play), and are they company accounts?
+  - Who will be the testers? (Google Play requires closed testing for new personal accounts.)
+  The answers go to Gabrielė together with the request.
+- A website that works well on phones is not a mobile app: it is part of design and testing.
 
 ## Discounts and alternatives
 
