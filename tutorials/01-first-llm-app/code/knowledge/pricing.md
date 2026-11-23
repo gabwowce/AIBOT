@@ -53,9 +53,9 @@ depends on the size of the project. Pick the row that fits.
 
 | Project size | Example | Planning | Testing | Bug fixing | Launch |
 | --- | --- | --- | --- | --- | --- |
-| Small | Presentation website, one integration, no database | ____ | ____ | ____ | ____ |
-| Medium | System with log in and a database, a few main features | ____ | ____ | ____ | ____ |
-| Large | Business system: many roles, integrations, reports | 8–10 | 10–12 | 4 | ____ |
+| Small | Presentation website, one integration, no database | 1 | 2 | 2 | 2 |
+| Medium | System with log in and a database, a few main features | 3–4 | 6 | 3 | 2 |
+| Large | Business system: many roles, integrations, reports | 8–10 | 10–12 | 4 | 2 |
 
 - Buffer for things that come up during the work (unclear requirements included): + 15 %.
 - If I have already built something similar (for example a language learning system),
