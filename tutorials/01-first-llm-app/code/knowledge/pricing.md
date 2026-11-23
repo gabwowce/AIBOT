@@ -8,13 +8,15 @@ Note: on the Gemini free tier, Google may use prompts to improve its products.
 
 ## Hourly rate
 
-- Rate: ____ € per hour
-- Minimum project price: ____ € (should not be lower than the website's "from" prices:
-  integrations from 500 €, chatbots from 800 €, apps from 1,000 €, business systems from 2,500 €)
+- Rate: 25 € per hour
+- Minimum project price: 500 €. I don't take very small jobs (50–100 €).
+- Website "from" prices: integrations from 500 €, chatbots from 800 €, apps from 1,000 €,
+  business systems from 2,500 €. A calculated price is never lower than these.
 
 ## Typical work items
 
 Hours are for one developer at my usual pace. "Min" = simple version, "Max" = complex version.
+Hours for each item include everything for that item: designing it, building it and testing it.
 
 | Work item | What it includes | Min h | Max h |
 | --- | --- | --- | --- |
@@ -37,10 +39,12 @@ Hours are for one developer at my usual pace. "Min" = simple version, "Max" = co
 
 | Factor | Effect |
 | --- | --- |
-| Several languages | + ____ % |
+| Each extra language | + 1–3 h |
 | Mobile app (not just a web app) | + ____ % or + ____ h |
 | Many user roles with different permissions | + ____ h |
-| Unclear or changing requirements | + ____ % |
+| Unclear requirements (client doesn't know yet how it should work) | + ____ % |
+| UX design (not just a working screen, but convenient to use) | + ____ h |
+| Ready to grow (more countries, languages or features later) | + ____ h |
 | ____ | ____ |
 
 ## Always included
@@ -59,7 +63,7 @@ Hours are for one developer at my usual pace. "Min" = simple version, "Max" = co
 
 ## Discounts and alternatives
 
-- Discounts the assistant may offer: ____ (for example: up to ____ % when paid upfront).
+- Discounts the assistant may offer: 10 % when the whole project is paid upfront.
 - The assistant never offers any other discount.
 - When the price is too high, it may suggest:
   - a smaller first version (MVP) with only the most important items;
