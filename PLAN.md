@@ -141,36 +141,24 @@ Asistentas paruoštas produkcijai.
 - TikMaker kaip atvejo analizė: kaip sukūriau agentų sistemą, kuri kuria
   video (po baigiamojo darbo gynimo)
 
-## Kur sustojome (2026-11-22)
+## Kur sustojome (2026-11-23)
 
 1 tutorialas: 1 ir 2 dalys veikia (`main.py`: pokalbio ciklas su
 istorija, tokenai, klaidų gaudymas). Bandymų įrašai `runs/`, tikri
 skaičiai `video-plan.md`.
 
-**Kitas mano darbas: užpildyti `code/knowledge/pricing.md`** (visur, kur
-`____`):
+**Kainodara baigta** (`code/knowledge/pricing.md`): 25 €/h, minimumas
+500 €, darbai su valandomis, pastovios dalys pagal projekto dydį
+(mažas / vidutinis / didelis), atsarga +15 %, 20 h per savaitę,
+10 % nuolaida apmokant iš karto. Mobiliųjų programėlių botas
+neįkainoja: surenka informaciją ir perduoda man.
 
-- **A. Įkainis:** valandinis įkainis (pvz., `40 € per hour`) ir minimali
-  projekto kaina, ne mažesnė už svetainės „nuo“ kainas (integracija 500 €,
-  chatbot 800 €, aplikacija 1 000 €, verslo sistema 2 500 €).
-- **B. Darbai:** kiekvienam darbui Min h (paprasta versija) ir Max h
-  (sudėtinga). Nereikalingas eilutes ištrinti, savas pridėti. Svarbiausia
-  dalis.
-- **C. Kas ilgina darbą:** kelios kalbos, mobilioji programėlė, daug rolių,
-  neaiškūs reikalavimai: `+__ %` arba `+__ h`.
-- **D. Kas įeina visada:** planavimo, testavimo, paleidimo valandos ir
-  atsarga procentais.
-- **E. Terminas:** kiek valandų per savaitę skiriu vienam projektui.
-- **F. Nuolaidos:** kokią ir kada botas gali siūlyti, arba `none`.
-- **G.** Neprivaloma papildoma taisyklė apie tai, kaip botas kalba apie
-  kainą.
+**Kitas mano darbas:** prijungti `pricing.md` prie prompto
+(`build_system_prompt()`), papildyti `prompts/system.md` taisyklėmis, kaip
+skaičiuoti kainą, ir išbandyti keliais pokalbiais (įrašai į `runs/`).
 
-Skaičiai gali būti apytiksliai: valandos tokios, kokias realiai užtrunku
-aš. Vėliau pataisysiu pagal testus.
-
-**Po to:** prijungti `pricing.md` prie prompto → botas-pardavėjas
-(klausinėja, skaičiuoja pagal valandas, siūlo alternatyvas) → filmavimo
-scenarijus → filmavimas.
+**Po to:** botas-pardavėjas (klausinėja, skaičiuoja pagal valandas, siūlo
+alternatyvas) → filmavimo scenarijus → filmavimas.
 
 ## Atviri klausimai
 

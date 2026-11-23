@@ -1,7 +1,6 @@
 # Codeart pricing rules
 
 <!--
-TEMPLATE — fill in the blanks (____). Delete rows you don't need, add your own.
 Everything here goes into the model's prompt, so write it plainly.
 Note: on the Gemini free tier, Google may use prompts to improve its products.
 -->
@@ -43,7 +42,8 @@ separately (see "Always included").
 | Factor | Effect |
 | --- | --- |
 | Each extra language | + 1–3 h |
-| Many user roles with different permissions | + ____ h |
+| Separate systems for different users (admin panel for admins, platform for users) | + 0 h |
+| One system where different roles can do different things | + 2–6 h |
 | Ready to grow (more countries, languages or features later) | + 2–3 h |
 
 ## Always included (depends on project size)
@@ -90,4 +90,3 @@ depends on the size of the project. Pick the row that fits.
 - The client buys a result, not hours: show the total price and timeline, not "hours × rate"
   (change this if you want hours to be visible).
 - Every price is preliminary. Gabrielė confirms the final price in writing.
-- ____
